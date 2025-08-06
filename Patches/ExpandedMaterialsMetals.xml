@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Expanded Materials: Metals-->
+<Patch>
+  <Operation Class="PatchOperationSequence" MayRequire="Argon.ExpandedMaterials.Metals">
+    <success>Always</success>
+    <operations>
+      <!-- Add the Upgrade comp to Fueled Alloy Furnace -->
+      <li Class="PatchOperationAdd" MayRequire="Argon.ExpandedMaterials.Metals">
+        <xpath>/Defs/ThingDef[defName="EM_FueledAlloyFurnace"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompUpgrade</compClass>
+            <linkedThing>EM_ElectricAlloyFurnace</linkedThing>
+            <keyedTooltipString>EU.UpgradeAlloyFurnace</keyedTooltipString>
+            <researchPrerequisites>
+              <li>Electricity</li>
+            </researchPrerequisites>
+            <additionalRequiredResources>
+              <Steel>50</Steel>
+              <ComponentIndustrial>3</ComponentIndustrial>
+            </additionalRequiredResources>
+          </li>
+        </value>
+      </li>
+      <!-- Add the Downgrade comp to Electric Alloy Furnace -->
+      <li Class="PatchOperationAdd" MayRequire="Argon.ExpandedMaterials.Metals">
+        <xpath>/Defs/ThingDef[defName="EM_ElectricAlloyFurnace"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompDowngrade</compClass>
+            <linkedThing>EM_FueledAlloyFurnace</linkedThing>
+            <keyedTooltipString>EU.DowngradeAlloyFurnace</keyedTooltipString>
+            <refundedResources>
+              <Steel>50</Steel>
+              <ComponentIndustrial>3</ComponentIndustrial>
+            </refundedResources>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

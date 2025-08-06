@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Vanilla Books Expanded-->
+<Patch>
+  <Operation Class="PatchOperationSequence" MayRequire="VanillaExpanded.VBooksE">
+    <success>Always</success>
+    <operations>
+      <!-- Add the Upgrade comp to Writer Table -->
+      <li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VBooksE">
+        <xpath>/Defs/ThingDef[defName="VBE_WritersTable"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompUpgrade</compClass>
+            <linkedThing>VBE_TypewritersTable</linkedThing>
+            <keyedTooltipString>EU.UpgradeWritersTable</keyedTooltipString>
+            <researchPrerequisites>
+              <li>Electricity</li>
+			  <li>VBE_Printing</li>
+            </researchPrerequisites>
+            <additionalRequiredResources>
+              <Steel>20</Steel>
+              <ComponentIndustrial>1</ComponentIndustrial>
+            </additionalRequiredResources>
+          </li>
+        </value>
+      </li>
+      <!-- Add the Downgrade comp to Typewriter Table -->
+      <li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VBooksE">
+        <xpath>/Defs/ThingDef[defName="VBE_TypewritersTable"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompDowngrade</compClass>
+            <linkedThing>VBE_WritersTable</linkedThing>
+            <keyedTooltipString>EU.DowngradeWritersTable</keyedTooltipString>
+            <refundedResources>
+              <Steel>20</Steel>
+              <ComponentIndustrial>1</ComponentIndustrial>
+            </refundedResources>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

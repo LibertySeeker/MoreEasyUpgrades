@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Repairable Gear-->
+<Patch>
+  <Operation Class="PatchOperationSequence" MayRequire="SteveZero.RepairableGear">
+    <success>Always</success>
+    <operations>
+      <!-- Add the Upgrade comp to Simple Repair Table-->
+      <li Class="PatchOperationAdd" MayRequire="SteveZero.RepairableGear">
+        <xpath>/Defs/ThingDef[defName="RG_SimpleRepairTable"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompUpgrade</compClass>
+            <linkedThing>RG_ElectricRepairTable</linkedThing>
+            <keyedTooltipString>EU.UpgradeRepairTable</keyedTooltipString>
+            <researchPrerequisites>
+              <li>Electricity</li>
+            </researchPrerequisites>
+            <additionalRequiredResources>
+              <Steel>30</Steel>
+              <ComponentIndustrial>5</ComponentIndustrial>
+            </additionalRequiredResources>
+          </li>
+        </value>
+      </li>
+      <!-- Add the Downgrade comp to Electric Repair Table -->
+      <li Class="PatchOperationAdd" MayRequire="SteveZero.RepairableGear">
+        <xpath>/Defs/ThingDef[defName="RG_ElectricRepairTable"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompDowngrade</compClass>
+            <linkedThing>RG_SimpleRepairTable</linkedThing>
+            <keyedTooltipString>EU.DowngradeRepairTable</keyedTooltipString>
+            <refundedResources>
+              <Steel>30</Steel>
+              <ComponentIndustrial>5</ComponentIndustrial>
+            </refundedResources>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

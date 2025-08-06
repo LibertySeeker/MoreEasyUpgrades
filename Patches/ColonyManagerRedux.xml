@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Colony Manager Redux-->
+<Patch>
+  <Operation Class="PatchOperationSequence" MayRequire="ilyvion.colonymanagerredux">
+    <success>Always</success>
+    <operations>
+      <!-- Add the Upgrade comp to Basic Manager Station -->
+      <li Class="PatchOperationAdd" MayRequire="ilyvion.colonymanagerredux">
+        <xpath>/Defs/ThingDef[defName="CM_BasicManagerStation"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompUpgrade</compClass>
+            <linkedThing>CM_ManagerStation</linkedThing>
+            <keyedTooltipString>EU.UpgradeManagerStation</keyedTooltipString>
+            <researchPrerequisites>
+              <li>Electricity</li>
+            </researchPrerequisites>
+            <additionalRequiredResources>
+              <Steel>75</Steel>
+              <Silver>1</Silver>
+            </additionalRequiredResources>
+          </li>
+        </value>
+      </li>
+      <!-- Add the Downgrade comp to Manager Station -->
+      <li Class="PatchOperationAdd" MayRequire="ilyvion.colonymanagerredux">
+        <xpath>/Defs/ThingDef[defName="CM_ManagerStation"]/comps</xpath>
+        <value>
+          <li Class="EasyUpgrades.CompProperties_Upgradable">
+            <compClass>EasyUpgrades.CompDowngrade</compClass>
+            <linkedThing>CM_BasicManagerStation</linkedThing>
+            <keyedTooltipString>EU.DowngradeManagerStation</keyedTooltipString>
+            <refundedResources>
+              <Steel>75</Steel>
+              <Silver>1</Silver>
+            </refundedResources>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>
