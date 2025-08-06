@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EU.UpgradeAlloyFurnace>Upgrade this to an electric alloy furnace</EU.UpgradeAlloyFurnace>
+  <EU.DowngradeAlloyFurnace>Downgrade this to a fueled alloy furnace</EU.DowngradeAlloyFurnace>
+  <EU.UpgradeRepairTable>Upgrade this to an electric repair table</EU.UpgradeRepairTable>
+  <EU.DowngradeRepairTable>Downgrade this to a simple repair table</EU.DowngradeRepairTable>
+  <EU.UpgradeManagerStation>Upgrade this to an computerized manager station</EU.UpgradeManagerStation>
+  <EU.DowngradeManagerStation>Downgrade this to a basic manager station</EU.DowngradeManagerStation>
+  <EU.UpgradeWritersTable>Upgrade this to a  typewriter's table</EU.UpgradeWritersTable>
+  <EU.DowngradeWritersTable>Downgrade this to a manual writer's table</EU.DowngradeWritersTable>
+</LanguageData>
